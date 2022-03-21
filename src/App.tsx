@@ -1,26 +1,29 @@
 import * as React from 'react';
-import { makeStyles, tokens, webDarkTheme, webLightTheme, FluentProvider } from '@fluentui/react-components';
+import { tokens, webDarkTheme, webLightTheme, Button, FluentProvider } from '@fluentui/react-components';
 import { useBoolean } from '@fluentui/react-utilities';
-import { IntroSection, Nav } from './components';
+import { makeStyles } from '@griffel/react';
+import './App.css';
 
 const useAppStyles = makeStyles({
   app: {
+    alignItems: 'center',
     backgroundColor: tokens.colorNeutralBackground1,
+    display: 'flex',
     height: '100%',
+    justifyContent: 'center',
   },
 });
 
-const App = () => {
-  const [isDarkTheme, { toggle: toggleTheme }] = useBoolean(false);
+function App() {
+  const [isDarkTheme, { toggle: toggleDarkTheme }] = useBoolean(false);
 
   const styles = useAppStyles();
 
   return (
     <FluentProvider theme={isDarkTheme ? webDarkTheme : webLightTheme} className={styles.app}>
-      <Nav toggleTheme={toggleTheme} />
-      <IntroSection />
+      <Button onClick={toggleDarkTheme}>Switch to {isDarkTheme ? 'light theme' : 'dark theme'}</Button>
     </FluentProvider>
   );
-};
+}
 
 export default App;
