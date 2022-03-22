@@ -6,7 +6,7 @@ import { IntroSection, Nav } from './components';
 const useAppStyles = makeStyles({
   app: {
     backgroundColor: tokens.colorNeutralBackground1,
-    height: '100%',
+    minHeight: '100%',
   },
 });
 
