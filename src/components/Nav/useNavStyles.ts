@@ -4,11 +4,13 @@ import type { NavState } from './Nav.types';
 const useStyles = makeStyles({
   root: {
     alignItems: 'center',
+    backgroundColor: 'inherit',
+    boxShadow: `0 0 8px ${tokens.colorBrandShadowAmbient}, 0 14px 28px ${tokens.colorNeutralStroke1}`,
     display: 'flex',
     justifyContent: 'space-between',
-    ...shorthands.padding('5px', '10px'),
+    minHeight: '60px',
+    ...shorthands.padding(0, '10px'),
     position: 'sticky',
-    boxShadow: `0 0 8px ${tokens.colorBrandShadowAmbient}, 0 14px 28px ${tokens.colorNeutralStroke1}`,
     top: 0,
   },
 
