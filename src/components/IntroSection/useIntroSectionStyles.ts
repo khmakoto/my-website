@@ -7,8 +7,11 @@ const useStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground6,
     display: 'flex',
     ...shorthands.gap('25px'),
-    minHeight: 'calc(100vh - 60px)',
+    minHeight: 'calc(100vh - 120px)',
     justifyContent: 'center',
+    transitionDuration: '200ms',
+    transitionTimingFunction: 'cubic-bezier(0.33, 0, 0.67, 1)',
+    transitionProperty: 'background, border, color',
   },
 
   profilePicture: {
