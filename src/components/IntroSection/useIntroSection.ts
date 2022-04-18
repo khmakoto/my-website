@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Image, Text } from '@fluentui/react-components';
 import { getNativeElementProps, resolveShorthand } from '@fluentui/react-utilities';
+import { matchesPhoneMedia } from '../../utils/index';
 import type { IntroSectionProps, IntroSectionState } from './IntroSection.types';
 
 export const useIntroSection = (props: IntroSectionProps, ref: React.Ref<HTMLDivElement>): IntroSectionState => {
@@ -8,14 +9,14 @@ export const useIntroSection = (props: IntroSectionProps, ref: React.Ref<HTMLDiv
 
   const profileDescription = resolveShorthand(props.profileDescription, {
     defaultProps: {
-      size: 500,
+      size: matchesPhoneMedia() ? 400 : 500,
     },
     required: true,
   });
 
   const profileIntroduction = resolveShorthand(props.profileDescription, {
     defaultProps: {
-      size: 700,
+      size: matchesPhoneMedia() ? 600 : 700,
       weight: 'semibold',
     },
     required: true,
