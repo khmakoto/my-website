@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { WeatherMoonRegular, WeatherSunnyRegular } from '@fluentui/react-icons';
 import { getSlots } from '@fluentui/react-utilities';
+import { matchesPhoneMedia } from '../../utils/index';
 import type { NavSlots, NavState } from './Nav.types';
 
 export const renderNav = (state: NavState) => {
@@ -15,7 +16,11 @@ export const renderNav = (state: NavState) => {
           <WeatherMoonRegular fontSize={24} />
         </slots.switchWrapper>
       )}
-      {slots.homeLink && <slots.homeLink {...slotProps.homeLink}>Humberto Makoto Morimoto Burgos</slots.homeLink>}
+      {slots.homeLink && (
+        <slots.homeLink {...slotProps.homeLink}>
+          {matchesPhoneMedia() ? 'Makoto Morimoto' : 'Humberto Makoto Morimoto Burgos'}
+        </slots.homeLink>
+      )}
     </slots.root>
   );
 };
